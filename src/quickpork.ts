@@ -99,8 +99,10 @@ export class QuickPork {
         } else {
             newSe = new vscode.Selection(0, 0, 0, 0);
         }
-        vscode.window.showTextDocument(doc);
-        vscode.window.activeTextEditor.selection = newSe;
-        vscode.window.activeTextEditor.revealRange(newSe, vscode.TextEditorRevealType.InCenter);
+        vscode.window.showTextDocument(doc)
+        .then(() => {
+            vscode.window.activeTextEditor.selection = newSe;
+            vscode.window.activeTextEditor.revealRange(newSe, vscode.TextEditorRevealType.InCenter)
+        });
     }
 }

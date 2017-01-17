@@ -55,7 +55,7 @@ class Searcher {
     private parsePlatinumSearcher(output: string, cwd: string): QuickPorkItem[] {
         return output.split("\n").map((line):QuickPorkItem => {
             const l = line.split(":");
-            if (!l) {
+            if (!l || l.length !== 3) {
                 return null;
             }
             const p = path.join(path.resolve(cwd), l[0]);
