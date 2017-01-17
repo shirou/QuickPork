@@ -2,6 +2,8 @@
 
 `Quick Pork` provides usuful Quick Pick utilties.
 
+![QuickPork Demo](https://github.com/shirou/quickpork/raw/master/QuickPork.gif)
+
 ### plugins
 
 - recent used file (recentf)
