@@ -15,12 +15,12 @@ export enum ItemType {
 
 export interface QuickPorkItem {
     // from vscode.QuickPickItem
-    description: string; 
+    description: string;
     detail?: string;
     label: string;
     // Extentended
     uri?: vscode.Uri;
-    action?: ActionType; 
+    action?: ActionType;
     type?: ItemType;
     data?: any;
 }
