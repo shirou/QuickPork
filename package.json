@@ -28,14 +28,6 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.quickPork.plugins.recentf",
-        "title": "QuickPick from recent used files"
-      },
-      {
-        "command": "extension.quickPork.plugins.buffers",
-        "title": "QuickPick from current opend buffers"
-      },
-      {
         "command": "extension.quickPork.open",
         "title": "Open quickPork(default)"
       },
@@ -50,12 +42,33 @@
       {
         "command": "extension.quickPork.open.3",
         "title": "Open quickPork(3)"
+      },
+      {
+        "command": "extension.quickPork.input",
+        "title": "Open quickPork with input (default)"
+      },
+      {
+        "command": "extension.quickPork.input.1",
+        "title": "Open quickPork with input(1)"
+      },
+      {
+        "command": "extension.quickPork.input.2",
+        "title": "Open quickPork with input(2)"
+      },
+      {
+        "command": "extension.quickPork.input.3",
+        "title": "Open quickPork with input(3)"
       }
     ],
     "keybindings": [
       {
-        "key": "ctrl+x l",
+        "key": "ctrl+c l",
         "command": "extension.quickPork.open",
+        "when": "editorTextFocus && !inDebugRepl"
+      },
+      {
+        "key": "ctrl+c d",
+        "command": "extension.quickPork.input",
         "when": "editorTextFocus && !inDebugRepl"
       }
     ],
@@ -68,7 +81,12 @@
         "default": "~/.recentfile",
         "description": "Path to save Recent file"
       },
-      "quickPork.plugins": {
+      "quickPork.search.command": {
+        "type": "string",
+        "default": "pt",
+        "description": "command to use search"
+      },
+      "quickPork.open.plugins": {
         "type": "array",
         "default": [
           "extension.quickPork.plugins.recentf",
@@ -76,20 +94,42 @@
         ],
         "description": "Quick Pork plugins"
       },
-      "quickPork.plugins1": {
+      "quickPork.open.plugins1": {
         "type": "array",
         "default": [],
         "description": "Quick Pork plugins for open 1"
       },
-      "quickPork.plugins2": {
+      "quickPork.open.plugins2": {
         "type": "array",
         "default": [],
         "description": "Quick Pork plugins for open 2"
       },
-      "quickPork.plugins3": {
+      "quickPork.open.plugins3": {
         "type": "array",
         "default": [],
         "description": "Quick Pork plugins for open 3"
+      },
+      "quickPork.input.plugins": {
+        "type": "array",
+        "default": [
+          "extension.quickPork.plugins.search"
+        ],
+        "description": "Quick Pork plugins with input"
+      },
+      "quickPork.input.plugins1": {
+        "type": "array",
+        "default": [],
+        "description": "Quick Pork plugins for input 11"
+      },
+      "quickPork.input.plugins2": {
+        "type": "array",
+        "default": [],
+        "description": "Quick Pork plugins for input 2"
+      },
+      "quickPork.input.plugins3": {
+        "type": "array",
+        "default": [],
+        "description": "Quick Pork plugins for input 3"
       }
     }
   }

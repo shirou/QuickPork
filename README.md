@@ -6,7 +6,7 @@
 
 - recent used file (recentf)
 - current using file (buffer)
-
+- string search such as ack, ag, pt (search)
 
 ## License
 

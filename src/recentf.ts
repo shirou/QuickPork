@@ -12,7 +12,6 @@ let deactivateFunc: () => boolean;
 
 export function activateRecentf(context: vscode.ExtensionContext, filepath: string): Recentf {
     const rf = new Recentf(filepath);
-
     deactivateFunc = (() => {
         return rf.close();
     });
