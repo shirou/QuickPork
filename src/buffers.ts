@@ -1,10 +1,6 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import * as fs from 'fs';
-import * as path from 'path';
-import * as readline from 'readline';
-import * as proc from 'process';
 
 import {QuickPorkItem, ActionType, ItemType} from './quick-pork-item';
 
@@ -26,18 +22,6 @@ class Buffers {
     static description = "buffers";
 
     constructor() {
-    }
-
-    private resolve(filePath: string): string {
-        if (!filePath) {
-            return "";
-        }
-        const p = filePath.replace("~", this.home());
-        return path.normalize(path.resolve(p));
-    }
-
-    private home(): string{
-        return proc.env[(proc.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
     }
 
     public fetch(): QuickPorkItem[] {

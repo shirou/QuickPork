@@ -2,9 +2,9 @@
 
 import * as vscode from 'vscode';
 import * as fs from 'fs';
-import * as path from 'path';
 import * as readline from 'readline';
-import * as proc from 'process';
+
+import * as util from './utils';
 
 import {QuickPorkItem, ActionType, ItemType} from './quick-pork-item';
 
@@ -37,7 +37,7 @@ class Recentf {
     
     constructor(filepath: string) {
         this._items = [];
-        this.filepath = this.resolve(filepath);
+        this.filepath = util.resolve(filepath);
         this.readRecentFile(this.filepath);
     }
 
@@ -82,7 +82,6 @@ class Recentf {
      * read from the file.
      */
     private readRecentFile(filepath: string) {
-        console.log(filepath);
         if (fs.existsSync(filepath) === false) {
             return;
         }
@@ -93,18 +92,6 @@ class Recentf {
             // no check dup check.
             this.push(line);
         });
-    }
-
-    private resolve(filePath: string): string {
-        if (!filePath) {
-            return "";
-        }
-        const p = filePath.replace("~", this.home());
-        return path.normalize(path.resolve(p));
-    }
-
-    private home(): string{
-        return proc.env[(proc.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
     }
 
     public fetch(): QuickPorkItem[] {
